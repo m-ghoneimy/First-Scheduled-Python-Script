@@ -4,7 +4,7 @@ import os
 
 def main():
     channel = "notify-me"
-    message = "hello"
+    message = "hello world"
     send_to_slack(channel, message)
 
 def send_to_slack(channel, message):
