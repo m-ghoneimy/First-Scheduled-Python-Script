@@ -23,5 +23,5 @@ jobs:
 
       - name: execute py script # run main.py
         env:
-          SOME_SECRET: ${{ secrets.SOME_SECRET }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         run: python main.py

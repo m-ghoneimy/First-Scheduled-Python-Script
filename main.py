@@ -1,17 +1,15 @@
+import slack
 import os
-import requests
 
-try:
-    SOME_SECRET = os.environ["SOME_SECRET"]
-except KeyError:
-    SOME_SECRET = "Token not available!"
-    #logger.info("Token not available!")
-    #raise
 
+def main():
+    channel = "notify-me"
+    message = "hello"
+    send_to_slack(channel, message)
+
+def send_to_slack(channel, message):
+    client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
+    client.chat_postMessage(channel=channel, text=message)
 
 if __name__ == "__main__":
-    r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
-    if r.status_code == 200:
-        data = r.json()
-        temperature = data["forecast"]["temp"]
-        # print(temperature)
+    main()
